@@ -857,20 +857,17 @@ section,
 }
 
 .hero .container {
-  background: color-mix(in srgb, var(--surface-color), transparent 10%);
   position: relative;
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 50px;
-  border-top: 4px solid var(--accent-color);
   z-index: 3;
 }
 
 @media (max-width: 1200px) {
   .hero .container {
-    margin-left: 50px;
-    margin-right: 50px;
+    align-content: center;
   }
 }
 
@@ -883,6 +880,21 @@ section,
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 30px;
+    
+  }
+}
+
+.hero p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--default-color);
+}
+
+@media (max-width: 768px) {
+  .hero p {
+    font-size: 14px;
+    
   }
 }
 
