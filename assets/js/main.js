@@ -252,3 +252,9 @@
     successMsg.style.display = 'none';
     backdrop.style.display = 'none';
   });
+  window.addEventListener('load', () => {
+  if (window.location.search.includes('form=success')) {
+    document.querySelector('.form-card').style.display = 'none';
+    document.getElementById('thanks-page').style.display = 'block';
+  }
+});

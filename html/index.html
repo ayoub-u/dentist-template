@@ -514,8 +514,8 @@ a[href^="tel:"]:hover {
     Remplissez le formulaire, nous vous recontacterons pour confirmer votre rendez-vous.
   </p>
 
-  <!-- CLIENT CHANGES THIS LINE ONLY: their-email@gmail.com -->
-  <form action="https://formsubmit.co/ayoublagha2005@gmail.com" method="POST">
+  <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="bot-field" />
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_subject" value="🦷 Nouvelle demande de rendez-vous" />
     <input type="hidden" name="_template" value="table" />
@@ -574,12 +574,7 @@ a[href^="tel:"]:hover {
 
 <script>
 // Show custom thank you + hide form
-window.addEventListener('load', () => {
-  if (window.location.search.includes('form=success')) {
-    document.querySelector('.form-card').style.display = 'none';
-    document.getElementById('thanks-page').style.display = 'block';
-  }
-});
+
 </script>
 
 
