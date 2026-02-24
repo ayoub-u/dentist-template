@@ -196,3 +196,59 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+
+  const form = document.getElementById('appointment-form');
+  const successMsg = document.getElementById('success-message');
+  const backdrop = document.getElementById('backdrop');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Disable button + show loading
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>Envoi...</span> <span class="arrow">⏳</span>';
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/_functions/api/contact', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      // FormSubmit returns 200 even on success - check for redirect header
+      const clone = response.clone();
+      const text = await clone.text();
+      
+      if (response.ok && !text.includes('Thank you')) {
+        // SUCCESS: show centered message + auto-hide after 5s
+        backdrop.style.display = 'block';
+        successMsg.style.display = 'block';
+        form.reset();
+        
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+          backdrop.style.display = 'none';
+        }, 5000); // 5 seconds
+      } else {
+        throw new Error('FormSubmit error');
+      }
+    } catch (error) {
+      alert('Erreur lors de l\'envoi. Vérifiez votre connexion et réessayez.');
+    } finally {
+      // Re-enable button
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span>Envoyer la demande</span> <span class="arrow">➜</span>';
+    }
+  });
+
+  // Close on backdrop click
+  backdrop.addEventListener('click', () => {
+    successMsg.style.display = 'none';
+    backdrop.style.display = 'none';
+  });

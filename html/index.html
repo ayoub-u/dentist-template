@@ -507,78 +507,87 @@ a[href^="tel:"]:hover {
     <div class="hours-line" style="font-size:12px;margin-top:4px;">Sur rendez-vous</div>
   </div>
 </aside>
-    
-    
-    
-    <div class="form-card">
-      <h1 class="form-title">Demande de rendez-vous</h1>
-      <p class="form-subtitle">
-        Remplissez le formulaire, nous vous recontacterons pour confirmer votre rendez-vous.
-      </p>
 
-      <form action="https://formsubmit.co/ayoublagha2005@gmail.com" method="POST">
-        <!-- FormSubmit config -->
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_subject" value="Nouvelle demande de rendez-vous" />
-        <input type="hidden" name="_next" value="https://votre-site.com/merci" />
+     <div class="form-card">
+  <h1 class="form-title">Demande de rendez-vous</h1>
+  <p class="form-subtitle">
+    Remplissez le formulaire, nous vous recontacterons pour confirmer votre rendez-vous.
+  </p>
 
-        <div class="field">
-          <label for="name">Nom complet</label>
-          <input id="name" name="Nom complet" type="text" required placeholder="Votre nom et prénom" />
-        </div>
+  <!-- CLIENT CHANGES THIS LINE ONLY: their-email@gmail.com -->
+  <form action="https://formsubmit.co/ayoublagha2005@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_subject" value="🦷 Nouvelle demande de rendez-vous" />
+    <input type="hidden" name="_template" value="table" />
+    <!-- CUSTOM THANK YOU - client changes to THEIR site -->
+    <input type="hidden" name="_next" value="https://ayoubdentist.netlify.app/html/merci.html" />
 
-        <div class="field">
-          <label for="phone">Numéro de téléphone</label>
-          <input id="phone" name="Téléphone" type="tel" required placeholder="Ex. 0660 121 872" />
-        </div>
-
-        <div class="field full">
-          <label for="email">Adresse email</label>
-          <input id="email" name="Email" type="email" required placeholder="votre@email.com" />
-        </div>
-
-        <div class="field">
-          <label for="care">Type de soin (optionnel)</label>
-          <select id="care" name="Type de soin">
-            <option value="">Sélectionnez...</option>
-            <option>Consultation</option>
-            <option>Détartrage</option>
-            <option>Blanchiment</option>
-            <option>Orthodontie</option>
-            <option>Autre</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="time">Créneau souhaité (optionnel)</label>
-          <input id="time" name="Créneau souhaité" type="text" placeholder="Ex. Samedi matin..." />
-        </div>
-
-        <div class="field full">
-          <label for="message">Votre message</label>
-          <textarea
-            id="message"
-            name="Message"
-            placeholder="Décrivez brièvement le motif de votre consultation, disponibilités..."
-          ></textarea>
-          <div class="note">Nous vous appellerons pour confirmer la date et l’heure exactes.</div>
-        </div>
-
-        <div class="actions">
-          <button type="submit" class="submit-btn">
-            <span>Envoyer la demande</span>
-            <span class="arrow">➜</span>
-          </button>
-        </div>
-      </form>
+    <div class="field">
+      <label for="name">Nom complet *</label>
+      <input id="name" name="name" type="text" required placeholder="Votre nom et prénom" />
     </div>
-  </div>
+
+    <div class="field">
+      <label for="phone">Numéro de téléphone *</label>
+      <input id="phone" name="telephone" type="tel" required placeholder="Ex. 0660 121 872" />
+    </div>
+
+    <div class="field full">
+      <label for="email">Adresse email *</label>
+      <input id="email" name="email" type="email" required placeholder="votre@email.com" />
+    </div>
+
+    <div class="field">
+      <label for="care">Type de soin</label>
+      <select id="care" name="typeSoin">
+        <option value="">Sélectionnez...</option>
+        <option>Consultation</option>
+        <option>Détartrage</option>
+        <option>Blanchiment</option>
+        <option>Orthodontie</option>
+        <option>Autre</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="time">Créneau souhaité</label>
+      <input id="time" name="creneau" type="text" placeholder="Ex. Samedi matin..." />
+    </div>
+
+    <div class="field full">
+      <label for="message">Votre message</label>
+      <textarea id="message" name="message" required
+        placeholder="Décrivez brièvement le motif de votre consultation..."></textarea>
+      <div class="note">Nous vous appellerons pour confirmer la date et l'heure exactes.</div>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="submit-btn">
+        <span>Envoyer la demande</span>
+        <span class="arrow">➜</span>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+
+<script>
+// Show custom thank you + hide form
+window.addEventListener('load', () => {
+  if (window.location.search.includes('form=success')) {
+    document.querySelector('.form-card').style.display = 'none';
+    document.getElementById('thanks-page').style.display = 'block';
+  }
+});
+</script>
+
+
 </main>
         <div class="text-center mt-4">
           <p>Ou prenez rendez-vous directement :</p>
-          <a href="tel:0540514614" class="cta-btn">Appeler le cabinet</a>
-          <a href="https://wa.me/213540514614" class="cta-btn ms-2">WhatsApp</a>
+          <a href="tel:0549381430" class="cta-btn">Appeler le cabinet</a>
+          <a href="https://wa.me/213549381430" class="cta-btn ms-2">WhatsApp</a>
         </div>
       </div>
     </section>
