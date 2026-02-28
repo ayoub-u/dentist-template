@@ -54,6 +54,7 @@
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
+
 </style>
 </head>
 
@@ -423,13 +424,20 @@ a[href^="tel:"]:hover {
      Réserver maintenant
   </a>
 </div>
-           <iframe 
-  src="https://calendar.app.google/H1f8foKzsEYvGj4E7"
-  style="border:0"
-  width="100%" 
-  height="700" 
-  frameborder="0">
-</iframe>
+  <div class=" booking-container ">
+            <iframe 
+    src="https://calendar.app.google/H1f8foKzsEYvGj4E7"
+    style="border:0 ;overflow: hidden;"
+    class="absolute inset-0 w-full h-full"
+    width="100%" 
+    height="800px"
+    frameborder="0"
+   
+    position="absolute">
+  </iframe>
+  </div>
+
+
    <div style="text-align:center; padding:40px;">
   <h3>Prendre rendez-vous</h3>
   <p>Cliquez ci-dessous pour choisir votre date.</p>
